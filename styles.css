@@ -23,7 +23,7 @@ body {
     transform: translateY(-50%);
     width: 150px;
     height: 260px;
-    z-index: 1;
+    z-index: 4; /* por defecto delante */
 }
 
 .flower-css.left {
@@ -34,7 +34,7 @@ body {
     right: 15%;
 }
 
-/* PÉTALOS */
+/* CONTENEDOR DE PÉTALOS */
 .petals {
     position: relative;
     width: 120px;
@@ -42,6 +42,7 @@ body {
     margin: auto;
 }
 
+/* PÉTALOS */
 .petals span {
     position: absolute;
     width: 32px;
@@ -74,7 +75,7 @@ body {
     background: radial-gradient(circle, #0d47a1, #082f6b);
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    z-index: 3;
+    z-index: 5;
 }
 
 /* TALLO */
@@ -114,7 +115,7 @@ body {
     border-radius: 15px;
 }
 
-/* Caras de la carta */
+/* Caras */
 .face {
     position: absolute;
     width: 100%;
@@ -198,12 +199,22 @@ button {
 }
 
 /* =========================
-   📱 RESPONSIVE
+   📱 RESPONSIVE + FIX MÓVIL
    ========================= */
 
 @media (max-width: 600px) {
+
     .flower-css {
+        z-index: 5; /* flores delante en móvil */
         transform: translateY(-50%) scale(0.75);
+    }
+
+    .card-container {
+        z-index: 2;
+    }
+
+    .final-card {
+        z-index: 3;
     }
 
     .card {
