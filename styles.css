@@ -11,10 +11,14 @@ body {
     align-items: center;
     background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
     overflow: hidden;
+    padding: env(safe-area-inset-top)
+             env(safe-area-inset-right)
+             env(safe-area-inset-bottom)
+             env(safe-area-inset-left);
 }
 
 /* =========================
-   🌸 FLORES GERBERA AZULES
+   🌸 FLORES
    ========================= */
 
 .flower-css {
@@ -23,18 +27,17 @@ body {
     transform: translateY(-50%);
     width: 150px;
     height: 260px;
-    z-index: 4; /* por defecto delante */
+    z-index: 1; /* detrás de la carta */
 }
 
 .flower-css.left {
-    left: 15%;
+    left: 10%;
 }
 
 .flower-css.right {
-    right: 15%;
+    right: 10%;
 }
 
-/* CONTENEDOR DE PÉTALOS */
 .petals {
     position: relative;
     width: 120px;
@@ -42,7 +45,6 @@ body {
     margin: auto;
 }
 
-/* PÉTALOS */
 .petals span {
     position: absolute;
     width: 32px;
@@ -55,7 +57,6 @@ body {
     transform: translateX(-50%);
 }
 
-/* Distribución circular */
 .petals span:nth-child(1) { transform: translateX(-50%) rotate(0deg); }
 .petals span:nth-child(2) { transform: translateX(-50%) rotate(45deg); }
 .petals span:nth-child(3) { transform: translateX(-50%) rotate(90deg); }
@@ -65,7 +66,6 @@ body {
 .petals span:nth-child(7) { transform: translateX(-50%) rotate(270deg); }
 .petals span:nth-child(8) { transform: translateX(-50%) rotate(315deg); }
 
-/* 🌼 CENTRO PERFECTAMENTE CENTRADO */
 .petals .center {
     position: absolute;
     top: 50%;
@@ -75,10 +75,8 @@ body {
     background: radial-gradient(circle, #0d47a1, #082f6b);
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    z-index: 5;
 }
 
-/* TALLO */
 .stem {
     width: 6px;
     height: 140px;
@@ -92,7 +90,7 @@ body {
 
 .card-container {
     perspective: 1000px;
-    z-index: 2;
+    z-index: 3;
 }
 
 .card {
@@ -108,28 +106,19 @@ body {
     transform: rotateY(180deg);
 }
 
-.face,
-.final-card {
-    background: linear-gradient(145deg, #f5f9ff, #e3f2fd);
-    box-shadow: 0 15px 35px rgba(30, 136, 229, 0.25);
-    border-radius: 15px;
-}
-
-/* Caras */
 .face {
     position: absolute;
     width: 100%;
     height: 100%;
+    background: linear-gradient(145deg, #f5f9ff, #e3f2fd);
+    box-shadow: 0 15px 35px rgba(30, 136, 229, 0.25);
+    border-radius: 15px;
     backface-visibility: hidden;
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.front {
-    text-align: center;
 }
 
 .back {
@@ -140,19 +129,14 @@ h1, h2 {
     color: #1e88e5;
 }
 
-.question {
-    margin-top: 15px;
-    font-weight: bold;
-}
-
-/* =========================
-   📖 TEXTO
-   ========================= */
-
 .message {
     text-align: justify;
     line-height: 1.5;
     margin: 15px 0;
+}
+
+.question {
+    font-weight: bold;
 }
 
 /* =========================
@@ -163,7 +147,8 @@ h1, h2 {
     margin-top: 20px;
     position: relative;
     width: 100%;
-    height: 100px;
+    height: 120px;
+    overflow: hidden;
 }
 
 button {
@@ -183,6 +168,7 @@ button {
     position: absolute;
     background-color: #ccc;
     left: 150px;
+    transition: transform 0.3s ease;
 }
 
 /* =========================
@@ -193,37 +179,27 @@ button {
     position: absolute;
     width: 300px;
     padding: 25px;
+    background: linear-gradient(145deg, #f5f9ff, #e3f2fd);
+    box-shadow: 0 15px 35px rgba(30, 136, 229, 0.25);
+    border-radius: 15px;
     text-align: center;
     display: none;
-    z-index: 3;
+    z-index: 4;
 }
 
 /* =========================
-   📱 RESPONSIVE + FIX MÓVIL
+   📱 RESPONSIVE
    ========================= */
 
 @media (max-width: 600px) {
-
-    .flower-css {
-        z-index: 5; /* flores delante en móvil */
-        transform: translateY(-50%) scale(0.75);
-    }
-
-    .card-container {
-        z-index: 2;
-    }
-
-    .final-card {
-        z-index: 3;
-    }
 
     .card {
         width: 260px;
         height: 360px;
     }
 
-    .message {
-        text-align: left;
+    .flower-css {
+        transform: translateY(-50%) scale(0.75);
     }
 }
 
