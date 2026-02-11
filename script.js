@@ -17,7 +17,7 @@ function moveNo() {
     noBtn.style.transform = `translate(${x}px, ${y}px)`;
 }
 
-// boton si
+// bo
 function sayYes() {
     card.style.display = "none";
     finalCard.style.display = "block";
