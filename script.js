@@ -2,30 +2,27 @@ const card = document.getElementById("card");
 const noBtn = document.getElementById("noBtn");
 const finalCard = document.getElementById("finalCard");
 
-// Voltear carta
-card.addEventListener("click", () => {
-    card.classList.toggle("flipped");
+let openedOnce = false; // controla el primer giro
+
+// Voltear carta SOLO la primera vez al hacer clic
+card.addEventListener("click", (e) => {
+    if (openedOnce) return;
+
+    card.classList.add("flipped");
+    openedOnce = true;
 });
 
-// Botón no
-/*noBtn.addEventListener("mouseover", moveNo);
-noBtn.addEventListener("touchstart", moveNo);*/
-
-noBtn.addEventListener('click', () => {
-    noBtn.classList.add('hide');
+// Botón NO → NO hace nada con la carta
+noBtn.addEventListener("click", (e) => {
+    e.stopPropagation(); // 🚫 evita que el clic llegue a la carta
+    noBtn.style.display = "none"; // desaparece
 });
 
-
-
-
-function moveNo() {
-    const x = Math.random() * 200 - 100;
-    const y = Math.random() * 150 - 75;
-    noBtn.style.transform = `translate(${x}px, ${y}px)`;
-}
-
-// boton si
+// Botón SÍ → voltea y muestra la carta final
 function sayYes() {
-    card.style.display = "none";
-    finalCard.style.display = "block";
+    card.classList.add("flipped"); // se asegura del giro
+    setTimeout(() => {
+        card.style.display = "none";
+        finalCard.style.display = "block";
+    }, 600); // tiempo acorde a la animación
 }
