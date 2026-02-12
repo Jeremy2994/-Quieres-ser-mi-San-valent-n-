@@ -11,31 +11,27 @@ body {
     align-items: center;
     background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
     overflow: hidden;
+    position: relative; /* para posicionar flores correctamente */
 }
 
 /* =========================
 FLORES 
-   ========================= */
+========================= */
 
 .flower-css {
-    position: fixed;
+    position: absolute; /* absoluto para estar a los lados de la carta */
     top: 50%;
     transform: translateY(-50%);
     width: 150px;
     height: 260px;
-    z-index: 1;
+    z-index: 1; /* detrás de la carta pero visibles */
+    pointer-events: none; /* no bloquean botones */
 }
 
-/* flor derecha e izquierda centrada */
-.flower-css.left {
-    left: 15%;
-}
+.flower-css.left {}
+.flower-css.right {}
 
-.flower-css.right {
-    right: 15%;
-}
-
-/* codigo petalos */
+/* pétalos */
 .petals {
     position: relative;
     width: 120px;
@@ -43,7 +39,6 @@ FLORES
     margin: auto;
 }
 
-/* petalos redondos */
 .petals span {
     position: absolute;
     width: 32px;
@@ -56,7 +51,6 @@ FLORES
     transform: translateX(-50%);
 }
 
-/* DISTRIBUCIÓN CIRCULAR */
 .petals span:nth-child(1) { transform: translateX(-50%) rotate(0deg); }
 .petals span:nth-child(2) { transform: translateX(-50%) rotate(45deg); }
 .petals span:nth-child(3) { transform: translateX(-50%) rotate(90deg); }
@@ -66,7 +60,6 @@ FLORES
 .petals span:nth-child(7) { transform: translateX(-50%) rotate(270deg); }
 .petals span:nth-child(8) { transform: translateX(-50%) rotate(315deg); }
 
-/* centro petalos */
 .petals .center {
     position: absolute;
     top: 50%;
@@ -87,7 +80,9 @@ FLORES
     margin: auto;
 }
 
-/* carta */
+/* =========================
+CARTA
+========================= */
 
 .card-container {
     perspective: 1000px;
@@ -133,28 +128,24 @@ h2 {
     color: #1e88e5;
 }
 
-/*.question {
-    margin-top: 15px;
-    font-weight: bold;
-    text-align: "center";
-}*/
-
 .question {
     margin-top: 15px;
     font-weight: bold;
-    margin-left: auto;  /* Margen izquierdo automático */
-    margin-right: auto; /* Margen derecho automático */
-    width: fit-content; /* Ajusta el ancho al contenido */
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
 }
 
-
-/* botones*/
+/* =========================
+BOTONES
+========================= */
 
 .buttons {
     margin-top: 20px;
     position: relative;
     width: 100%;
     height: 100px;
+    z-index: 5; /* encima de la carta */
 }
 
 button {
@@ -168,6 +159,8 @@ button {
 .yes {
     background-color: #1e88e5;
     color: white;
+    position: relative;
+    z-index: 6; /* clickeable encima de todo */
 }
 
 .no {
@@ -183,7 +176,9 @@ button {
     transform: scale(0.8);
 }
 
-/*tarjeta segunda parte */
+/* =========================
+CARTA FINAL
+========================= */
 
 .final-card {
     position: absolute;
@@ -196,7 +191,9 @@ button {
     z-index: 3;
 }
 
-/* codigo programado*/
+/* =========================
+RESPONSIVE
+========================= */
 
 @media (max-width: 600px) {
     .flower-css {
@@ -207,6 +204,17 @@ button {
         width: 260px;
         height: 360px;
     }
+
+    .message {
+        text-align: center;
+    }
+}
+
+@media (max-width: 414px) {
+    .flower-css {
+        width: 120px;
+        height: 220px;
+    }
 }
 
 @media (max-width: 400px) {
@@ -215,18 +223,12 @@ button {
     }
 }
 
+/* =========================
+TEXTO
+========================= */
 
-
-/* 💌 Texto bonito y legible */
 .message {
     text-align: center;
     line-height: 1.5;
     margin: 15px 0;
-}
-
-/* 📱 En celular mejor alineado a la izquierda */
-@media (max-width: 600px) {
-    .message {
-        text-align: center;
-    }
 }
