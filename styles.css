@@ -11,86 +11,87 @@ body {
     align-items: center;
     background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
     overflow: hidden;
+    position: relative; /* CLAVE para flores laterales */
 }
 
 /* =========================
-FLORES 
+   🌸 FLORES
    ========================= */
 
 .flower-css {
-    position: fixed;
+    position: absolute;   /* 👈 NO fixed */
     top: 50%;
     transform: translateY(-50%);
-    width: 150px;
-    height: 260px;
-    z-index: 1;
+    width: 140px;
+    height: 240px;
+    pointer-events: none; /* 👈 nunca interfieren con clicks */
 }
 
-/* flor derecha e izquierda centrada */
+/* Laterales reales */
 .flower-css.left {
-    left: 15%;
+    left: 0;
 }
 
 .flower-css.right {
-    right: 15%;
+    right: 0;
 }
 
-/* codigo petalos */
+/* =========================
+   🌼 PARTES DE LA FLOR
+   ========================= */
+
 .petals {
     position: relative;
-    width: 120px;
-    height: 120px;
+    width: 110px;
+    height: 110px;
     margin: auto;
 }
 
-/* petalos redondos */
 .petals span {
     position: absolute;
-    width: 32px;
-    height: 60px;
+    width: 30px;
+    height: 58px;
     background: linear-gradient(180deg, #bbdefb, #1e88e5);
     border-radius: 50%;
-    top: 10px;
+    top: 8px;
     left: 50%;
     transform-origin: center bottom;
     transform: translateX(-50%);
 }
 
-/* DISTRIBUCIÓN CIRCULAR */
-.petals span:nth-child(1) { transform: translateX(-50%) rotate(0deg); }
-.petals span:nth-child(2) { transform: translateX(-50%) rotate(45deg); }
-.petals span:nth-child(3) { transform: translateX(-50%) rotate(90deg); }
-.petals span:nth-child(4) { transform: translateX(-50%) rotate(135deg); }
-.petals span:nth-child(5) { transform: translateX(-50%) rotate(180deg); }
-.petals span:nth-child(6) { transform: translateX(-50%) rotate(225deg); }
-.petals span:nth-child(7) { transform: translateX(-50%) rotate(270deg); }
-.petals span:nth-child(8) { transform: translateX(-50%) rotate(315deg); }
+.petals span:nth-child(1){transform:translateX(-50%) rotate(0deg);}
+.petals span:nth-child(2){transform:translateX(-50%) rotate(45deg);}
+.petals span:nth-child(3){transform:translateX(-50%) rotate(90deg);}
+.petals span:nth-child(4){transform:translateX(-50%) rotate(135deg);}
+.petals span:nth-child(5){transform:translateX(-50%) rotate(180deg);}
+.petals span:nth-child(6){transform:translateX(-50%) rotate(225deg);}
+.petals span:nth-child(7){transform:translateX(-50%) rotate(270deg);}
+.petals span:nth-child(8){transform:translateX(-50%) rotate(315deg);}
 
-/* centro petalos */
 .petals .center {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
     background: radial-gradient(circle, #0d47a1, #082f6b);
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    z-index: 3;
 }
 
-/* TALLO */
 .stem {
     width: 6px;
-    height: 140px;
+    height: 130px;
     background: linear-gradient(#2e7d32, #1b5e20);
     margin: auto;
 }
 
-/* carta */
+/* =========================
+   📩 CARTA
+   ========================= */
 
 .card-container {
-    perspective: 1000px;
+    perspective: 1200px;
     z-index: 2;
 }
 
@@ -99,7 +100,7 @@ FLORES
     height: 400px;
     position: relative;
     transform-style: preserve-3d;
-    transition: transform 0.8s;
+    transition: transform 0.8s ease;
     cursor: pointer;
 }
 
@@ -111,9 +112,10 @@ FLORES
     position: absolute;
     width: 100%;
     height: 100%;
+    background: linear-gradient(145deg, #f5f9ff, #e3f2fd);
+    box-shadow: 0 15px 35px rgba(30,136,229,.25);
     border-radius: 15px;
     backface-visibility: hidden;
-    background: white;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -121,30 +123,34 @@ FLORES
     align-items: center;
 }
 
-.front {
-    text-align: center;
-}
-
 .back {
     transform: rotateY(180deg);
 }
 
-h2 {
+h1, h2 {
     color: #1e88e5;
 }
 
+.message {
+    text-align: justify;
+    line-height: 1.5;
+    margin: 15px 0;
+}
+
 .question {
-    margin-top: 15px;
     font-weight: bold;
 }
 
-/* botones*/
+/* =========================
+   🔘 BOTONES
+   ========================= */
 
 .buttons {
     margin-top: 20px;
     position: relative;
     width: 100%;
-    height: 100px;
+    height: 120px;
+    overflow: hidden;
 }
 
 button {
@@ -162,54 +168,31 @@ button {
 
 .no {
     position: absolute;
-    background-color: #ccc;
     left: 150px;
+    background-color: #ccc;
+    transition: transform 0.3s ease;
 }
 
-/*tarjeta segunda parte */
-
-.final-card {
-    position: absolute;
-    background: white;
-    border-radius: 15px;
-    padding: 25px;
-    text-align: center;
-    width: 300px;
-    display: none;
-    z-index: 3;
-}
-
-/* codigo programado*/
+/* =========================
+   📱 MÓVIL
+   ========================= */
 
 @media (max-width: 600px) {
-    .flower-css {
-        transform: translateY(-50%) scale(0.75);
-    }
 
     .card {
         width: 260px;
         height: 360px;
     }
+
+    /* Flores más pequeñas pero SIEMPRE a los lados */
+    .flower-css {
+        transform: translateY(-50%) scale(0.7);
+        opacity: 0.9;
+    }
 }
 
 @media (max-width: 400px) {
     .flower-css {
-        display: none;
-    }
-}
-
-
-
-/* 💌 Texto bonito y legible */
-.message {
-    text-align: justify;
-    line-height: 1.5;
-    margin: 15px 0;
-}
-
-/* 📱 En celular mejor alineado a la izquierda */
-@media (max-width: 600px) {
-    .message {
-        text-align: left;
+        display: none; /* pantallas muy pequeñas */
     }
 }
