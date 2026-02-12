@@ -209,7 +209,7 @@ button {
 
 /* 💌 Texto bonito y legible */
 .message {
-    text-align: justify;
+    text-align: center;
     line-height: 1.5;
     margin: 15px 0;
 }
@@ -224,4 +224,5 @@ button {
 .centrocentro {
     text-align: = "center";
 }
+
 
