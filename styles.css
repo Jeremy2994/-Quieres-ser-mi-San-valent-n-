@@ -72,8 +72,8 @@ FLORES ARRIBA
 
 /* TALLO */
 .stem {
-    width: 6px;
-    height: 140px;
+    width: 10px;
+    height: 120px;
     background: linear-gradient(#2e7d32, #1b5e20);
     margin: auto;
 }
@@ -230,3 +230,4 @@ TEXTO
     line-height: 1.5;
     margin: 15px 0;
 }
+
