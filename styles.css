@@ -73,7 +73,7 @@ FLORES ARRIBA
 /* TALLO */
 .stem {
     width: 10px; /* más grueso */
-    height: 120px; /* más corto */
+    height: 90px; /* más corto */
     background: linear-gradient(#2e7d32, #1b5e20);
     margin: auto;
 }
@@ -230,3 +230,4 @@ TEXTO
     line-height: 1.5;
     margin: 15px 0;
 }
+
