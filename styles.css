@@ -133,11 +133,20 @@ h2 {
     color: #1e88e5;
 }
 
-.question {
+/*.question {
     margin-top: 15px;
     font-weight: bold;
     text-align: "center";
+}*/
+
+.question {
+    margin-top: 15px;
+    font-weight: bold;
+    margin-left: auto;  /* Margen izquierdo automático */
+    margin-right: auto; /* Margen derecho automático */
+    width: fit-content; /* Ajusta el ancho al contenido */
 }
+
 
 /* botones*/
 
@@ -221,6 +230,7 @@ button {
         text-align: center;
     }
 }
+
 
 
 
