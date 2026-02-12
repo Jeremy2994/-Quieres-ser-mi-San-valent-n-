@@ -136,6 +136,7 @@ h2 {
 .question {
     margin-top: 15px;
     font-weight: bold;
+    text-align: "center";
 }
 
 /* botones*/
@@ -220,6 +221,7 @@ button {
         text-align: center;
     }
 }
+
 
 
 
