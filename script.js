@@ -8,8 +8,15 @@ card.addEventListener("click", () => {
 });
 
 // Botón no
-noBtn.addEventListener("mouseover", moveNo);
-noBtn.addEventListener("touchstart", moveNo);
+/*noBtn.addEventListener("mouseover", moveNo);
+noBtn.addEventListener("touchstart", moveNo);*/
+
+noBtn.addEventListener('click', () => {
+    noBtn.classList.add('hide');
+});
+
+
+
 
 function moveNo() {
     const x = Math.random() * 200 - 100;
@@ -17,7 +24,7 @@ function moveNo() {
     noBtn.style.transform = `translate(${x}px, ${y}px)`;
 }
 
-// bo
+// boton si
 function sayYes() {
     card.style.display = "none";
     finalCard.style.display = "block";
