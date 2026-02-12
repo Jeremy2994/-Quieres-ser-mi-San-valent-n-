@@ -11,21 +11,19 @@ body {
     align-items: center;
     background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
     overflow: hidden;
-    position: relative; /* necesario para posicionamiento absoluto de flores */
 }
 
 /* =========================
 FLORES 
-========================= */
+   ========================= */
 
 .flower-css {
-    position: absolute; /* 🔑 cambio de fixed a absolute para mobile */
+    position: fixed;
     top: 50%;
     transform: translateY(-50%);
     width: 150px;
     height: 260px;
     z-index: 1;
-    pointer-events: none; /* 🔑 evita bloquear botones */
 }
 
 /* flor derecha e izquierda centrada */
@@ -37,7 +35,7 @@ FLORES
     right: 15%;
 }
 
-/* petalos */
+/* codigo petalos */
 .petals {
     position: relative;
     width: 120px;
@@ -45,6 +43,7 @@ FLORES
     margin: auto;
 }
 
+/* petalos redondos */
 .petals span {
     position: absolute;
     width: 32px;
@@ -57,6 +56,7 @@ FLORES
     transform: translateX(-50%);
 }
 
+/* DISTRIBUCIÓN CIRCULAR */
 .petals span:nth-child(1) { transform: translateX(-50%) rotate(0deg); }
 .petals span:nth-child(2) { transform: translateX(-50%) rotate(45deg); }
 .petals span:nth-child(3) { transform: translateX(-50%) rotate(90deg); }
@@ -88,6 +88,7 @@ FLORES
 }
 
 /* carta */
+
 .card-container {
     perspective: 1000px;
     z-index: 2;
@@ -132,21 +133,28 @@ h2 {
     color: #1e88e5;
 }
 
+/*.question {
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: "center";
+}*/
+
 .question {
     margin-top: 15px;
     font-weight: bold;
-    margin-left: auto;
-    margin-right: auto;
-    width: fit-content;
+    margin-left: auto;  /* Margen izquierdo automático */
+    margin-right: auto; /* Margen derecho automático */
+    width: fit-content; /* Ajusta el ancho al contenido */
 }
 
+
 /* botones*/
+
 .buttons {
     margin-top: 20px;
     position: relative;
     width: 100%;
     height: 100px;
-    z-index: 5; /* 🔑 aseguramos que los botones estén encima de la carta */
 }
 
 button {
@@ -160,8 +168,6 @@ button {
 .yes {
     background-color: #1e88e5;
     color: white;
-    position: relative;
-    z-index: 6; /* 🔑 asegurar que el botón sea clickeable */
 }
 
 .no {
@@ -177,7 +183,8 @@ button {
     transform: scale(0.8);
 }
 
-/* tarjeta segunda parte */
+/*tarjeta segunda parte */
+
 .final-card {
     position: absolute;
     background: white;
@@ -189,7 +196,8 @@ button {
     z-index: 3;
 }
 
-/* responsive */
+/* codigo programado*/
+
 @media (max-width: 600px) {
     .flower-css {
         transform: translateY(-50%) scale(0.75);
@@ -199,26 +207,6 @@ button {
         width: 260px;
         height: 360px;
     }
-
-    .message {
-        text-align: center;
-    }
-}
-
-@media (max-width: 414px) {
-    /* Para dispositivos como iPhone 11 */
-    .flower-css.left {
-        left: 15px;
-    }
-
-    .flower-css.right {
-        right: 15px;
-    }
-
-    .flower-css {
-        width: 120px;
-        height: 220px;
-    }
 }
 
 @media (max-width: 400px) {
@@ -227,9 +215,18 @@ button {
     }
 }
 
+
+
 /* 💌 Texto bonito y legible */
 .message {
     text-align: center;
     line-height: 1.5;
     margin: 15px 0;
+}
+
+/* 📱 En celular mejor alineado a la izquierda */
+@media (max-width: 600px) {
+    .message {
+        text-align: center;
+    }
 }
