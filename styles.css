@@ -11,25 +11,23 @@ body {
     align-items: center;
     background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
     overflow: hidden;
-    position: relative; /* para posicionar flores correctamente */
+    position: relative;
 }
 
 /* =========================
-FLORES 
+FLORES ARRIBA
 ========================= */
 
 .flower-css {
-    position: absolute; /* absoluto para estar a los lados de la carta */
-    top: 50%;
-    transform: translateY(-50%);
+    position: absolute;
+    top: 10%; /* 🌸 Flores arriba de la carta */
+    left: 50%; /* centradas horizontalmente */
+    transform: translateX(-50%);
     width: 150px;
     height: 260px;
-    z-index: 1; /* detrás de la carta pero visibles */
+    z-index: 3; /* delante de la carta */
     pointer-events: none; /* no bloquean botones */
 }
-
-.flower-css.left {}
-.flower-css.right {}
 
 /* pétalos */
 .petals {
@@ -197,7 +195,7 @@ RESPONSIVE
 
 @media (max-width: 600px) {
     .flower-css {
-        transform: translateY(-50%) scale(0.75);
+        transform: translateX(-50%) scale(0.7);
     }
 
     .card {
