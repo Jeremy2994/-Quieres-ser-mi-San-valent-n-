@@ -217,12 +217,13 @@ button {
 /* 📱 En celular mejor alineado a la izquierda */
 @media (max-width: 600px) {
     .message {
-        text-align: left;
+        text-align: center;
     }
 }
 
 .centrocentro {
     text-align: = "center";
 }
+
 
 
